@@ -42,6 +42,7 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
    	 p.add(new CircleMorph(450, 300, 20, 20, 100, 350, 300));
    	 p.add(new MovingMorph(20, 20, 30, 30));
    	 p.add(new OptionMorph(150, 150, 30, 30));
+   	 p.add(new ImageMorph(300, 300, 100, 100, "phil.png"));
    	 
    	 timer = new Timer(1000 / 30, this);
    	 timer.start();
@@ -53,8 +54,8 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
    	 g.fillRect(0, 0, WIDTH, HEIGHT);
    	 m.draw(g);
    	 //draw polymorph
-   	 for (Polymorph i : p) {
-   		 i.draw(g);
+   	 for (int i =0;i<p.size();i++) {
+   		 p.get(i).draw(g);
    	 }
 
     }
@@ -84,8 +85,8 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		for (Polymorph i : p) {
-			if (i.getClass() instanceof OptionMorph) {
-				
+			if (i.getClass().equals(OptionMorph.class)) {
+				i.click(e.getX(),e.getY());
 			}
 		}
 	}

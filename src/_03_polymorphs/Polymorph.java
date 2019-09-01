@@ -32,4 +32,9 @@ public abstract class Polymorph {
     }
     
     public abstract void draw(Graphics g);
+
+	public void click(int x2, int y2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
